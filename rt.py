@@ -8,7 +8,7 @@ print(f"평균점수는 {avg} 입니다.")
 
 #2
 f = open("새파일.txt" , "w")
-data = input("김성훈")
+data = input("rf")
 f.write(data + "\n")
 f.close()
 
