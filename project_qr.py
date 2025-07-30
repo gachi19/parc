@@ -1,9 +1,8 @@
 # 사용법
 # 터미널에서 python project_qr.py -i
-# 또는 python project_qr.py encode 'Hello, World!' output.png --box-size 10 --border 4
+# 또는 python project_qr.py encode 'Hello, World!' output --box-size 10 --border 4
 # 또는 python project_qr.py decode input.png
 # 를 실행하여 QR 코드 생성 및 디코딩 도구를 사용가능
-
 # pip install qrcode[pil] pillow opencv-python pyzbar
 # 터미널에서 필수 실행
 
@@ -14,7 +13,6 @@ from pyzbar.pyzbar import decode
 import argparse
 
 def decode_qr(image_path):
-    """QR 코드를 디코딩하는 함수"""
     try:
         img = cv2.imread(image_path)
         if img is None:
@@ -42,7 +40,6 @@ def decode_qr(image_path):
         return []
 
 def generate_qr(data, output_path, box_size=10, border=4):
-    """QR 코드를 생성하는 함수"""
     try:
         qr = qrcode.QRCode(
             version=1,
@@ -60,7 +57,6 @@ def generate_qr(data, output_path, box_size=10, border=4):
         print(f"[에러] QR 코드 생성 실패: {e}")
 
 def interactive_mode():
-    """대화식 모드"""
     while True:
         print("\n=== QR 코드 도구 ===")
         print("1. QR 코드 생성")

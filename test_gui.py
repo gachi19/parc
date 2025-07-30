@@ -1,4 +1,3 @@
-# GUI QR 코드 생성 및 디코딩 도구
 # pip install qrcode[pil] pillow opencv-python
 # 터미널에서 필수 실행
 
@@ -119,7 +118,6 @@ class QRCodeGUI:
         scrollbar.pack(side='right', fill='y')
 
     def browse_output_file(self):
-        """출력 파일 경로 선택"""
         file_path = filedialog.asksaveasfilename(
             title="QR 코드 저장 위치 선택",
             defaultextension=".png",
@@ -129,7 +127,6 @@ class QRCodeGUI:
             self.output_path_var.set(file_path)
 
     def browse_input_file(self):
-        """입력 파일 경로 선택"""
         file_path = filedialog.askopenfilename(
             title="디코딩할 이미지 파일 선택",
             filetypes=[("Image files", "*.png *.jpg *.jpeg *.gif *.bmp"), ("All files", "*.*")]
@@ -138,7 +135,6 @@ class QRCodeGUI:
             self.input_path_var.set(file_path)
 
     def generate_qr(self):
-        """QR 코드 생성"""
         data = self.data_entry.get('1.0', tk.END).strip()
         output_path = self.output_path_var.get().strip()
 
@@ -172,7 +168,6 @@ class QRCodeGUI:
             messagebox.showerror("오류", f"QR 코드 생성 중 오류가 발생했습니다:\n{str(e)}")
 
     def update_preview(self, pil_image):
-        """미리보기 업데이트"""
         try:
             # 이미지 크기 조정 (최대 200x200)
             img_copy = pil_image.copy()
